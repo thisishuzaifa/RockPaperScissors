@@ -11,10 +11,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var playerOneSelection: UIImageView!
     @IBOutlet weak var playerTwoSelection: UIImageView!
     
-    var playerOneChoice = ""
-    var playerTwoChoice = ""
+    var player1played:Bool = false
+    var player2played:Bool = false
+    
+    var randomImageName1:String? = "rock"
+    var randomImageName2:String? = "paper"
+    
     let choices = ["rock","paper","scissors"]
-    let whoBeatsWhat = ["rock": "scissors", "paper" : "scissors", "scissors": "paper"]
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +39,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func playerOneButton(_ sender: UIButton) {
-        let playerOneChoice = choices.randomElement()
-      
-        
-        if let imageName1 = playerOneChoice{
-            playerOneSelection.image = UIImage(named: imageName1)
+        if(player1played == false){
+            randomImageName1 = choices.randomElement()
+            player1played = true
+            player2played = false
             
         }
+        
         
     }
     
